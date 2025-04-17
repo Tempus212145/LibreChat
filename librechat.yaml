@@ -11,6 +11,35 @@ registration:
     - "openid"
 
 endpoints:
+
+  # ---- START: Updated Google AI (Gemini) Endpoint ----
+  google:
+    # Use an environment variable for your API Key
+    apiKey: "${GOOGLE_API_KEY}"
+    # Define the Gemini models you want to enable
+    # Check Google AI documentation for available model names
+    models:
+      gemini-pro: {} # The {} means use default settings
+      gemini-1.5-pro-latest: {}
+      gemini-1.5-flash-latest: {}
+      gemini-2.5-pro-exp-03-25: {}
+      gemini-2.0-flash-thinking-exp-01-21: {}
+      # Add other models you have access to and want to use here
+    # Optional: Set a title that appears in the LibreChat model dropdown
+    title: "Google"
+    # ---- Google Safety Settings ----
+    # Configure content blocking thresholds. Options include:
+    # BLOCK_NONE, BLOCK_ONLY_HIGH, BLOCK_MEDIUM_AND_ABOVE, BLOCK_LOW_AND_ABOVE
+    safetySettings:
+      SEXUALLY_EXPLICIT: BLOCK_ONLY_HIGH
+      HATE_SPEECH: BLOCK_ONLY_HIGH
+      HARASSMENT: BLOCK_ONLY_HIGH
+      DANGEROUS_CONTENT: BLOCK_ONLY_HIGH
+    # ---- End Google Safety Settings ----
+  # ---- END: Updated Google AI (Gemini) Endpoint ----
+
+
+  # ---- Your Existing Custom Endpoints ----
   custom:
     # APIpie
     # https://apipie.ai/dashboard/
@@ -469,7 +498,7 @@ endpoints:
           - xwin-lm-70b
           - yi-large
           - yi-vision
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "claude-3-haiku"
       summarize: false
@@ -496,7 +525,7 @@ endpoints:
           - command-r-plus
           - command-r7b-12-2024
           - command-r7b-arabic-02-2025
-        fetch: false
+      fetch: false
       modelDisplayLabel: "cohere"
       titleModel: "command"
       dropParams:
@@ -517,7 +546,7 @@ endpoints:
         default:
           - deepseek-chat
           - deepseek-reasoner
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "deepseek-chat"
       summarize: false
@@ -567,7 +596,7 @@ endpoints:
           - accounts/zmd5zer-d5cab1/models/ft-79313e32-d65d0
           - accounts/zmd5zer-d5cab1/models/ft-e6c8e46b-ea5e4
           - accounts/zmd5zer-d5cab1/models/ft-fd5e5bdb-49bf1
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "accounts/fireworks/models/llama-v2-7b-chat"
       summarize: false
@@ -577,7 +606,7 @@ endpoints:
       dropParams:
         - "user"
 
-    # GitHub 
+    # GitHub
     - name: "Github Models"
       iconURL: https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png
       apiKey: "${GITHUB_TOKEN}"
@@ -609,7 +638,7 @@ endpoints:
           - gpt-4o-mini
           - text-embedding-3-large
           - text-embedding-3-small
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "gpt-4o-mini"
 
@@ -634,7 +663,7 @@ endpoints:
           - playai-tts
           - playai-tts-arabic
           - qwen-qwq-32b
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "mixtral-8x7b-32768"
       modelDisplayLabel: "groq"
@@ -728,7 +757,7 @@ endpoints:
           - tiiuae/falcon-7b-instruct
           - unsloth/DeepSeek-R1-GGUF
           - upstage/SOLAR-10.7B-Instruct-v1.0
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO"
       dropParams:
@@ -758,7 +787,7 @@ endpoints:
           - meta-llama/Meta-Llama-3.1-405B-Instruct
           - meta-llama/Meta-Llama-3.1-70B-Instruct
           - meta-llama/Meta-Llama-3.1-8B-Instruct
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "meta-llama/Meta-Llama-3.1-8B-Instruct"
       modelDisplayLabel: "Hyperbolic"
@@ -781,7 +810,7 @@ endpoints:
           - klusterai/Meta-Llama-3.3-70B-Instruct-Turbo
           - meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
           - meta-llama/Llama-4-Scout-17B-16E-Instruct
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: 'klusterai/Meta-Llama-3.1-8B-Instruct-Turbo'
       modelDisplayLabel: 'Kluster'
@@ -843,7 +872,7 @@ endpoints:
           - pixtral-12b-latest
           - pixtral-large-2411
           - pixtral-large-latest
-        fetch: false
+      fetch: false
       titleConvo: true
       titleMethod: "completion"
       titleModel: "mistral-tiny"
@@ -1073,12 +1102,12 @@ endpoints:
           - yi-large
           - yi-lightning
           - yi-medium-200k
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "current_model"
       modelDisplayLabel: "NanoGPT"
 
-    # NVIDIA         
+    # NVIDIA
     # https://build.nvidia.com/explore/discover
     - name: "Nvidia"
       apiKey: "${NVIDIA_API_KEY}"
@@ -1212,7 +1241,7 @@ endpoints:
           - writer/palmyra-med-70b-32k
           - yentinglin/llama-3-taiwan-70b-instruct
           - zyphra/zamba2-7b-instruct
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "nvidia/nemotron-mini-4b-instruct"
       modelDisplayLabel: "Nvidia"
@@ -1552,7 +1581,7 @@ endpoints:
           - undi95/remm-slerp-l2-13b
           - undi95/toppy-m-7b
           - xwin-lm/xwin-lm-70b
-        fetch: false
+      fetch: false
       dropParams:
         - "stop"
       titleConvo: true
@@ -1575,7 +1604,7 @@ endpoints:
           - sonar-pro
           - sonar-reasoning
           - sonar-reasoning-pro
-        fetch: false # fetching list of models is not supported
+      fetch: false # fetching list of models is not supported
       titleConvo: true
       titleModel: "llama-3.1-sonar-small-128k-chat"
       summarize: false
@@ -1610,7 +1639,7 @@ endpoints:
           - Qwen2-Audio-7B-Instruct
           - Qwen2.5-72B-Instruct
           - Qwen2.5-Coder-32B-Instruct
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "Meta-Llama-3.1-8B-Instruct"
       modelDisplayLabel: "SambaNova"
@@ -1675,7 +1704,7 @@ endpoints:
           - togethercomputer/MoA-1
           - togethercomputer/MoA-1-Turbo
           - upstage/SOLAR-10.7B-Instruct-v1.0
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "togethercomputer/llama-2-7b-chat"
       summarize: false
@@ -1851,7 +1880,7 @@ endpoints:
           - qwen-qwq-32b@fireworks-ai
           - qwen-qwq-32b@groq
           - qwen-qwq-32b@together-ai
-        fetch: false
+      fetch: false
       titleConvo: true
       titleModel: "gpt-4o-mini@openai"
       dropParams:
@@ -1873,7 +1902,7 @@ endpoints:
           - grok-3-mini-beta
           - grok-beta
           - grok-vision-beta
-        fetch: false
+      fetch: false
       titleConvo: true
       titleMethod: "completion"
       titleModel: "grok-beta"
@@ -1881,3 +1910,27 @@ endpoints:
       summaryModel: "grok-beta"
       forcePrompt: false
       modelDisplayLabel: "Grok"
+
+# Add any other configurations below this line, ensuring correct indentation
+# For example:
+# app:
+#   title: "My Custom LibreChat"
+#
+# auth:
+#   local:
+#     registerEnabled: false # Example: disable local registration
+#   google:
+#     clientID: "${GOOGLE_CLIENT_ID}"
+#     clientSecret: "${GOOGLE_CLIENT_SECRET}"
+#     enabled: true
+#
+# mongodbUri: "${MONGO_URI}" # Example: mongodb://localhost:27017/LibreChat
+#
+# jwtSecret: "${JWT_SECRET}" # IMPORTANT: Set a long, random string in .env
+# jwtRefreshSecret: "${JWT_REFRESH_SECRET}" # IMPORTANT: Set another long, random string in .env
+#
+# fileStrategy: "local" # Or azure, google, etc.
+# fileConfig:
+#   local:
+#     path: "../data/images"
+#     baseURL: "/images/"
