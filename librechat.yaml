@@ -31,10 +31,10 @@ endpoints:
     # Configure content blocking thresholds. Options include:
     # BLOCK_NONE, BLOCK_ONLY_HIGH, BLOCK_MEDIUM_AND_ABOVE, BLOCK_LOW_AND_ABOVE
     safetySettings:
-      SEXUALLY_EXPLICIT: BLOCK_ONLY_HIGH
-      HATE_SPEECH: BLOCK_ONLY_HIGH
-      HARASSMENT: BLOCK_ONLY_HIGH
-      DANGEROUS_CONTENT: BLOCK_ONLY_HIGH
+      SEXUALLY_EXPLICIT: BLOCK_NONE
+      HATE_SPEECH: BLOCK_NONE
+      HARASSMENT: BLOCK_NONE
+      DANGEROUS_CONTENT: BLOCK_NONE
     # ---- End Google Safety Settings ----
   # ---- END: Updated Google AI (Gemini) Endpoint ----
 
